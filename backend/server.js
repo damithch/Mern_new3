@@ -10,12 +10,9 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // To parse JSON request bodies
 
-// MongoDB connection
+// MongoDB connection (Updated to remove deprecated options)
 mongoose
-  .connect(process.env.MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URL)  // Removed the deprecated options
   .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.log("Error connecting to MongoDB:", error.message));
 
