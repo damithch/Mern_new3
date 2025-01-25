@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const employeeRoutes = require("./routes/employeeRoutes");
+const adminCustomerRoutes = require("./routes/adminCustomerRoutes");
 
 const app = express();
 
@@ -18,6 +19,7 @@ mongoose
 
 // Use the employee routes
 app.use("/api/employees", employeeRoutes);
+app.use("/api/adminCustomer", adminCustomerRoutes);
 
 // Start server
 const port = process.env.PORT || 5000;
